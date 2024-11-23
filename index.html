@@ -1,13 +1,163 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>my page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bodybuilder | Fitness Coach | Tech Innovator">
+  <title>Your Name's Portfolio</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f9;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    header {
+      background: #333;
+      color: #fff;
+      padding: 1rem 0;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+    }
+    header p {
+      margin: 5px 0 10px;
+    }
+
+    /* Navigation */
+    nav {
+      background: #444;
+      text-align: center;
+      padding: 10px 0;
+    }
+    nav a {
+      margin: 0 15px;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    /* Sections */
+    section {
+      padding: 2rem 0;
+    }
+    .hero {
+      text-align: center;
+      background: #007BFF;
+      color: #fff;
+      padding: 2rem 0;
+    }
+    .hero img {
+      max-width: 150px;
+      border-radius: 50%;
+      margin: 10px auto;
+    }
+
+    .projects, .blog {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      background: #333;
+      color: #fff;
+      padding: 1rem 0;
+      margin-top: 2rem;
+    }
+  </style>
 </head>
-<h1 style="color: blue;">my first page ever</h1>
-<h2>guess what im back and you cant stop me</h2>
-<video src="www.youtube.com" alt="video"></video>
 <body>
-    
+
+  <header>
+    <h1>Your Name</h1>
+    <p>Bodybuilder | Fitness Coach | Tech Enthusiast</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#blog">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Welcome to My Portfolio</h2>
+    <p>Combining strength in the gym with creativity in tech!</p>
+    <img src="your-photo.jpg" alt="Your Photo">
+  </section>
+
+  <section id="about" class="container">
+    <h2>About Me</h2>
+    <p>
+      Hi, I’m [Your Name]. I’m a bodybuilder, aspiring fitness coach, and a second-year computer science student from Annaba, Algeria. 
+      I’m working on innovative projects like SpeakUp and a volunteering platform while preparing to pursue further studies in Germany.
+    </p>
+  </section>
+
+  <section id="projects" class="container">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>SpeakUp</h3>
+        <p>An app for debating and voting on arguments to promote respectful discourse.</p>
+        <a href="https://github.com/yourusername/speakup">View on GitHub</a>
+      </div>
+      <div class="card">
+        <h3>Volunteering Platform</h3>
+        <p>A web app to connect volunteers and organizations for positive initiatives.</p>
+        <a href="https://github.com/yourusername/volunteering-app">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" class="container">
+    <h2>Blog</h2>
+    <div class="blog">
+      <div class="card">
+        <h3>Top 5 Fitness Tips for Beginners</h3>
+        <p>Kickstart your fitness journey with these simple tips.</p>
+        <a href="#">Read More</a>
+      </div>
+      <div class="card">
+        <h3>How I Built SpeakUp</h3>
+        <p>A technical dive into building a debate app using Django and React.</p>
+        <a href="#">Read More</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="container">
+    <h2>Contact</h2>
+    <p>Want to connect? Reach me at:</p>
+    <p>Email: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Your Name. All Rights Reserved.</p>
+  </footer>
+
 </body>
 </html>
