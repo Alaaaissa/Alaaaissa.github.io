@@ -151,18 +151,31 @@
                 <div class="contact-info">
                     <div class="contact-item">
                         <i class="fas fa-envelope"></i>
-                        <p>aissa.alaa.30@gmail.com</p>
+                        <p><a href="mailto:aissa.alaa.30@gmail.com">aissa.alaa.30@gmail.com</a></p>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <p>Annaba, Algeria</p>
                     </div>
-                    <div class="social-links">
-                        <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    </div>
                 </div>
-                
+                <!-- Google Calendar Appointment Scheduling begin -->
+                <link href="https://calendar.google.com/calendar/scheduling-button-script.css" rel="stylesheet">
+                <script src="https://calendar.google.com/calendar/scheduling-button-script.js" async></script>
+                <script>
+                (function() {
+                  var target = document.currentScript;
+                  window.addEventListener('load', function() {
+                    calendar.schedulingButton.load({
+                      url: 'https://calendar.google.com/calendar/appointments/schedules/AcZssZ2-xTS2Va31d3zBlDl0SdUZr5eIXjK4pa6hw5sV3dRjpOz3XL_A6-OUK7zn9Eie5GOsStpUuzX9?gv=true',
+                      color: '#039BE5',
+                      label: 'Book an appointment',
+                      target,
+                    });
+                  });
+                })();
+                </script>
+                <!-- end Google Calendar Appointment Scheduling -->
+            </div>              
         </div>
     </section>
 
