@@ -573,3 +573,76 @@ footer {
 .toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
 }
+
+/* Video Introduction Section */
+.video-intro-container {
+    margin-top: 30px;
+    background-color: var(--background-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    max-width: 700px;
+}
+
+.video-buttons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.video-btn {
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    border: none;
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.video-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.video-btn.active {
+    background-color: var(--secondary-color);
+    box-shadow: var(--shadow);
+}
+
+/* Video loading spinner */
+.video-intro-container {
+    position: relative;
+}
+
+.video-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    margin: -25px 0 0 -25px;
+    border: 5px solid var(--primary-color);
+    border-top: 5px solid var(--accent-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    z-index: 10;
+    pointer-events: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#intro-video.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+#intro-video.fade-in {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
