@@ -576,44 +576,40 @@ footer {
 
 /* Video Introduction Section */
 .video-intro-container {
-    margin-top: 30px;
-    background-color: var(--background-color);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: var(--shadow);
-    max-width: 700px;
+    display: none !important;
+}
+
+.video-wrapper {
+    display: none !important;
+}
+
+#intro-video {
+    display: none !important;
+}
+
+.video-buttons-container {
+    display: none !important;
+}
+
+.video-buttons-container h3 {
+    display: none !important;
 }
 
 .video-buttons {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 15px;
-    gap: 15px;
+    display: none !important;
 }
 
 .video-btn {
-    background-color: var(--primary-color);
-    color: var(--light-text);
-    border: none;
-    padding: 10px 25px;
-    border-radius: 30px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    display: none !important;
 }
 
-.video-btn:hover {
-    background-color: var(--secondary-color);
-}
-
-.video-btn.active {
-    background-color: var(--secondary-color);
-    box-shadow: var(--shadow);
+.video-btn::before {
+    display: none !important;
 }
 
 /* Video loading spinner */
 .video-intro-container {
-    position: relative;
+    position: static;
 }
 
 .video-spinner {

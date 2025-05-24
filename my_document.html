@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Document - Password Protected</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2rem;
+            background-color: #f9f9f9;
+            margin: 0;
+        }
+        .password-container, .documents-container {
+            max-width: 700px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2.5rem 3rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: box-shadow 0.3s ease;
+        }
+        .password-container:hover, .documents-container:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+        }
+        .password-container h2 {
+            margin-bottom: 1.2rem;
+            font-size: 1.8rem;
+            color: #144d6d;
+        }
+        .password-container p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1.8rem;
+        }
+        .password-container input[type="password"] {
+            width: 100%;
+            padding: 0.85rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            border: 1.5px solid #166088;
+            border-radius: 6px;
+            transition: border-color 0.3s ease;
+        }
+        .password-container input[type="password"]:focus {
+            border-color: #0f4a5c;
+            outline: none;
+        }
+        .password-container button {
+            padding: 0.85rem 2rem;
+            font-size: 1.1rem;
+            background-color: #166088;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .password-container button:hover {
+            background-color: #0f4a5c;
+        }
+        .error-message {
+            color: #d9534f;
+            margin-bottom: 1.2rem;
+            font-weight: 600;
+        }
+        .documents-container h2 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 2rem;
+            color: #144d6d;
+        }
+        .document-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .document-list li {
+            margin-bottom: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            max-width: 700px;
+        }
+        .document-list a {
+            color: #166088;
+            text-decoration: none;
+            font-weight: 600;
+            flex: 1;
+            margin-right: 1rem;
+            transition: color 0.3s ease;
+        }
+        .document-list a:last-child {
+            margin-right: 0;
+        }
+        .document-list a:hover {
+            text-decoration: underline;
+            color: #0f4a5c;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            .password-container, .documents-container {
+                max-width: 100%;
+                padding: 1.5rem 1.5rem;
+                margin: 1rem auto;
+            }
+            .password-container h2, .documents-container h2 {
+                font-size: 1.5rem;
+            }
+            .password-container input[type="password"], .password-container button {
+                font-size: 1rem;
+                padding: 0.7rem;
+            }
+            .document-list li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .document-list a {
+                margin: 0 0 0.8rem 0;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="password-container" id="password-container">
+        <h2>Enter Password to Access Documents</h2>
+        <p style="font-style: italic; color: #555; margin-bottom: 1.5rem; font-size: 1.1rem;">
+            Please note: The password to access these documents is provided in my CV.
+        </p>
+        <div class="error-message" id="error-message" style="display:none;"></div>
+        <input type="password" id="password-input" placeholder="Password" />
+        <button id="submit-password">Submit</button>
+    </div>
+
+    <div class="documents-container" id="documents-container" style="display:none;">
+        <h2>My Documents and Translations</h2>
+        <ul class="document-list" id="document-list">
+            <!-- Document links will be inserted here -->
+        </ul>
+    </div>
+
+    <script>
+        (function() {
+            const correctPassword = "X9$gT7#vLpQ2!zR"; // Updated to a stronger password
+            const passwordContainer = document.getElementById('password-container');
+            const documentsContainer = document.getElementById('documents-container');
+            const errorMessage = document.getElementById('error-message');
+            const passwordInput = document.getElementById('password-input');
+            const submitButton = document.getElementById('submit-password');
+            const documentList = document.getElementById('document-list');
+
+            // List of document pairs: original and translation
+            // Each pair: { original: {name, file}, translation: {name, file} }
+            const documentPairs = [
+                {
+                    original: { name: "Baccalaureate Diploma", file: "DOCUMENTS DE ALAA/BACCALAUREAT.pdf" },
+                    translation: { name: "Translated Baccalaureate Diploma", file: "DOCUMENTS DE ALAA/Translated Baccalaureate Diploma.pdf" }
+                },
+                {
+                    original: { name: "Baccalaureate Transcript", file: "DOCUMENTS DE ALAA/Baccalaureate Transcript.pdf" },
+                    translation: { name: "Translated Baccalaureate Transcript", file: "DOCUMENTS DE ALAA/Translated Baccalaureate Transcript.pdf" }
+                },
+                {
+                    original: { name: "First-Year Grade Report", file: "DOCUMENTS DE ALAA/First-Year Grade Report.pdf" },
+                    translation: null
+                },
+                {
+                    original: { name: "Second-Year Re-registration", file: "DOCUMENTS DE ALAA/Second-Year Re-registration.pdf" },
+                    translation: null
+                },
+                {
+                    original: { name: "B2 Attendance FDS", file: "DOCUMENTS DE ALAA/B2_Attendance_FDS.pdf" },
+                    translation: null
+                },
+                {
+                    original: { name: "FDS B1", file: "DOCUMENTS DE ALAA/FDS_B1.pdf" },
+                    translation: null
+                },
+                {
+                    original: { name: "Ielts Certificate", file: "DOCUMENTS DE ALAA/Ielts .pdf" },
+                    translation: null
+                },
+                {
+                    original: { name: "PASSEPORT ALAA", file: "DOCUMENTS DE ALAA/PASSEPORT ALAA.pdf" },
+                    translation: null
+                },
+                {
+                    original: { name: "Passport", file: "DOCUMENTS DE ALAA/Passport.jpg" },
+                    translation: null
+                }
+            ];
+
+            function encodeFilePath(filePath) {
+                // Replace spaces with %20 for URL encoding
+                return filePath.split('/').map(encodeURIComponent).join('/');
+            }
+
+            function showDocuments() {
+                documentList.innerHTML = "";
+                documentPairs.forEach(pair => {
+                    const li = document.createElement('li');
+                    li.style.display = "flex";
+                    li.style.justifyContent = "space-between";
+                    li.style.maxWidth = "600px";
+
+                    const originalLink = document.createElement('a');
+                    originalLink.href = encodeFilePath(pair.original.file);
+                    originalLink.target = "_blank";
+                    originalLink.textContent = pair.original.name;
+                    originalLink.style.flex = "1";
+                    originalLink.style.marginRight = "1rem";
+
+                    li.appendChild(originalLink);
+
+                    if (pair.translation) {
+                        const translationLink = document.createElement('a');
+                        translationLink.href = encodeFilePath(pair.translation.file);
+                        translationLink.target = "_blank";
+                        translationLink.textContent = pair.translation.name;
+                        translationLink.style.flex = "1";
+                        li.appendChild(translationLink);
+                    } else {
+                        const emptySpan = document.createElement('span');
+                        emptySpan.style.flex = "1";
+                        li.appendChild(emptySpan);
+                    }
+
+                    documentList.appendChild(li);
+                });
+                passwordContainer.style.display = "none";
+                documentsContainer.style.display = "block";
+            }
+
+            submitButton.addEventListener('click', function() {
+                const enteredPassword = passwordInput.value;
+                if (enteredPassword === correctPassword) {
+                    errorMessage.style.display = "none";
+                    showDocuments();
+                } else {
+                    errorMessage.textContent = "Incorrect password. Please try again.";
+                    errorMessage.style.display = "block";
+                    passwordInput.value = "";
+                    passwordInput.focus();
+                }
+            });
+
+            // Optional: allow pressing Enter to submit password
+            passwordInput.addEventListener('keyup', function(event) {
+                if (event.key === "Enter") {
+                    submitButton.click();
+                }
+            });
+        })();
+    </script>
+</body>
+</html>

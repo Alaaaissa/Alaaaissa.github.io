@@ -18,6 +18,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
+                    <li><a href="my_document.html">My Document</a></li>
                 </ul>
                 <div class="burger">
                     <div class="line1"></div>
@@ -62,17 +63,7 @@
                     
                     <p>Currently working in sales and e-commerce while developing personal projects, I'm an ambitious, self-reliant, and goal-oriented individual looking to make an impact in the tech world.</p>
                 </div>
-                <div class="video-intro-container">
-                    <div class="video-buttons">
-                        <button id="btn-en" class="video-btn active">English</button>
-                        <button id="btn-de" class="video-btn">German</button>
-                    </div>
-                    <video id="intro-video" controls preload="metadata" width="100%" height="auto" class="fade-in">
-                        <source src="videos/Adrenaline_T01.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                    <div class="video-spinner" id="video-spinner"></div>
-                </div>
+                
                 <div class="skills">
                     <h3>My Skills</h3>
                     <div class="skill-tags">
@@ -83,6 +74,21 @@
                         <span>Problem Solving</span>
                         <span>Multilingual</span>
                         <span>E-commerce</span>
+                    </div>
+                </div>
+
+                <!-- Video Language Selection Section -->
+                <div class="video-language-section">
+                    <h3>Watch Introduction Video</h3>
+                    <div class="video-container">
+                        <video id="language-video" controls preload="metadata" width="100%" height="auto" class="responsive-video">
+                            <source src="videos/english.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="video-language-buttons">
+                        <button id="lang-en" class="lang-btn active">English</button>
+                        <button id="lang-de" class="lang-btn">German</button>
                     </div>
                 </div>
             </div>
